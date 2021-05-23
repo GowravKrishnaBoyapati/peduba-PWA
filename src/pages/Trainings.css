@@ -1,0 +1,33 @@
+.spa{
+    display: block;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 2vh;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background: #fff; /* fallback color for old browsers */
+    background: rgba(255, 255, 255, 0.5);
+    width:100vw;
+}
+.btn {
+    cursor: pointer;
+    border: 1px solid #3498db;
+    background-color: transparent;
+    height: 30vh;
+    width: 50vw;
+    color: #3498db;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+.btn1 {
+    cursor: pointer;
+    border: 1px solid #3498db;
+    background-color: transparent;
+    height: 30vh;
+    width: 100vw;
+    color: #3498db;
+    font-size: 1em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}

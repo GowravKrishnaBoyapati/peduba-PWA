@@ -13,7 +13,6 @@ const useStyles = makeStyles({
     width: '100vw',
     position: 'absolute',
     bottom: 0,
-    justifyContent:'space-between',
     overflow: 'auto',
   },
 });
@@ -29,7 +28,7 @@ export default function Navbar(props) {
     setValue(newValue);
   };
   return (
-    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+    <BottomNavigation value={value} onChange={handleChange} className={classes.root} style ={{width: '100%'}}>
     <BottomNavigationAction label="Dashboard" value="Dashboard"  icon={<EqualizerIcon />} />
      <BottomNavigationAction label="Incident" value="Incidents"  icon={<ReportProblemIcon />}/> 
      <BottomNavigationAction label="Training" value="trainings" icon={<LocalLibraryIcon />} />
