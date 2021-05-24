@@ -1,39 +1,63 @@
 import React,{useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import EqualizerIcon from '@material-ui/icons/Equalizer';
-import ReportProblemIcon from '@material-ui/icons/ReportProblem';
-import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
-import AssignmentIcon from '@material-ui/icons/Assignment';
-import BuildIcon from '@material-ui/icons/Build';
-import {useHistory} from 'react-router-dom'
-const useStyles = makeStyles({
-  root: {
-    width: '100vw',
-    position: 'absolute',
-    bottom: 0,
-    overflow: 'auto',
-  },
-});
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
+import TuneOutlinedIcon from '@material-ui/icons/TuneOutlined';import LocalLibraryOutlinedIcon from '@material-ui/icons/LocalLibraryOutlined';import BuildIcon from '@material-ui/icons/Build';
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import {auth} from "../firebase"
+import {useHistory,useLocation } from 'react-router-dom'
+import './Navbar.css';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import IconButton from '@material-ui/core/IconButton';
 
 export default function Navbar(props) {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState('Dashboard');
   let history = useHistory();
+  const location = useLocation();
   useEffect(() => {
     history.push(value)
   }, [value])
+  useEffect(()=>{
+    setValue(location.pathname.substring(1))
+  },[])
+  useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((authUser)=>{
+      if(!authUser){
+        window.location.reload(false);
+      }
+		});
+   
+		return unsubscribe;
+	}, []);
+  const signOut = (e) => {
+		e.preventDefault();
+    console.log("pressed logout")
+		auth.signOut().catch(function(error) {
+		  		console.log(error)
+		  		console.log("An error occurred")
+		});	
+	  }
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setValue(newValue,);
   };
   return (
-    <BottomNavigation value={value} onChange={handleChange} className={classes.root} style ={{width: '100%'}}>
-    <BottomNavigationAction label="Dashboard" value="Dashboard"  icon={<EqualizerIcon />} />
-     <BottomNavigationAction label="Incident" value="Incidents"  icon={<ReportProblemIcon />}/> 
-     <BottomNavigationAction label="Training" value="trainings" icon={<LocalLibraryIcon />} />
-    <BottomNavigationAction label="Jobs" value="jobs" icon={<AssignmentIcon />} />
-    <BottomNavigationAction label="Settings" value="Settings" icon={<BuildIcon />} />
+    <div>
+      <div className='wrap'>
+        <div></div>
+          <div className="spa">
+                <h2 style={{paddingTop:'2vh'}} >Hello, User!!</h2>
+          </div>
+          <IconButton onClick={signOut}>
+          <ExitToAppIcon fontSize="large" />
+          </IconButton>
+      </div>
+    <BottomNavigation value={value} onChange={handleChange} className="root" style={{width:'100%'}}>
+    <BottomNavigationAction label="Home" value="home"  icon={<HomeOutlinedIcon  />} />
+     <BottomNavigationAction label="Incident" value="Incidents"  icon={<ReportProblemOutlinedIcon />}/> 
+     <BottomNavigationAction label="Training" value="trainings" icon={<LocalLibraryOutlinedIcon />} />
+    <BottomNavigationAction label="Jobs" value="jobs" icon={<WorkOutlineIcon />} />
+    <BottomNavigationAction label="Settings" value="Settings" icon={<TuneOutlinedIcon />} />
     </BottomNavigation>
+    </div>
   );
 }

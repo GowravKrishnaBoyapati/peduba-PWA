@@ -1,0 +1,12 @@
+.loader-item {
+    width: 30vw;
+    height: 30vh;
+    margin: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    background-color: transparent;
+    /* animation: scale 4s infinite; */
+}

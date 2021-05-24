@@ -10,24 +10,30 @@ const useStyles = makeStyles({
   root: {
     width: '100vw',
     bottom: 0,
-    overflow: 'auto',
+    justifyContent:'space-evenly'
   },
 });
-
-function TrainingNabvar() {
+let c=0;
+function TrainingNabvar(props) {
     const classes = useStyles();
   const [value, setValue] = React.useState(0);
   let history = useHistory();
-  /*useEffect(() => {
-    history.push(value)
-  }, [value])*/
+  
+  useEffect(() => {
+    props.onChange(value)
+  }, [value])
+  useEffect(() =>{
+     c=0
+    setValue('MyTrainings') 
+  },[])
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    c=1
+    setValue(newValue)
   };
   return (
     <BottomNavigation value={value} onChange={handleChange} className={classes.root} style ={{width: '100%'}}>
-    <BottomNavigationAction label="My trainings" value="Dashboard"  icon={<PermIdentityIcon />} />
-     <BottomNavigationAction label="Team Trainings" value="Incidents"  icon={<PeopleIcon />}/> >
+    <BottomNavigationAction label="My trainings" value="MyTrainings"   icon={<PermIdentityIcon />} />
+     <BottomNavigationAction label="Team Trainings" value="TeamTrainings"  icon={<PeopleIcon />}/> 
     </BottomNavigation>
   );
 }

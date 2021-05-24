@@ -1,8 +1,21 @@
 .app {
   text-align: center;
-  position: absolute;
-width: 100vw;
-height: 100vh;
-background: linear-gradient(180deg, rgba(255, 27, 27, 0.65) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, rgba(255, 57, 200, 0.65) 40%, rgba(255, 1, 184, 0) 100%);
-background-color: #383838;
+  background: linear-gradient(50deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  /*border-radius: 27px;*/
+	animation: gradient 5s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

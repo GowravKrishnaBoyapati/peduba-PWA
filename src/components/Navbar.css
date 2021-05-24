@@ -1,0 +1,25 @@
+.root {
+    width: '100vw';
+    position: absolute;
+    bottom: 0;
+    overflow: auto;
+    color:black;
+    border-radius:100px;
+  }
+  .wrap{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background: #fff; /* fallback color for old browsers */
+    background: rgba(110, 110, 110,1);
+    width:100vw;
+  }
+  .spa{
+    
+}
