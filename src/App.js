@@ -6,6 +6,7 @@ import Settings from './pages/Settings'
 import Jobs from './pages/Jobs'
 import Incidents from './pages/Incidents'
 import Login from './pages/Login'
+import Attendance from './pages/Attendance'
 import {auth,db} from './firebase'
 import {
   BrowserRouter as Router,
@@ -33,7 +34,9 @@ function App(props) {
    useEffect(() =>{
      setUser(auth.currentUser)
     },[userData])
-
+    const [page, setPage] = useState('home')
+    useEffect(() => {
+    }, [page])
   return (
     <div className="app">
       
@@ -47,16 +50,17 @@ function App(props) {
         ):
         (
           <Router>
-        <Navbar />
+        <Navbar value={page} onOption={(e)=>{setPage(e)}}/>
         <Switch>
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
-          <Route path='/home' component={Dashboard} />
+          <Route path='/home' ><Dashboard onPageChange={(e)=>{console.log(e); setPage(e)}} /> </Route>
           <Route path='/trainings' ><Trainings user_category={userData.user_category} /> </Route>
           <Route path='/settings' component={Settings} />
           <Route path='/jobs' component={Jobs} />
           <Route path='/Incidents' component={Incidents} />
+          <Route path='/attendance'><Attendance /></Route>
         </Switch>
         </Router>
         )}

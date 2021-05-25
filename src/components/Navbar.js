@@ -11,15 +11,25 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import IconButton from '@material-ui/core/IconButton';
 
 export default function Navbar(props) {
-  const [value, setValue] = React.useState('Dashboard');
+  const [value, setValue] = React.useState(props.value);
   let history = useHistory();
   const location = useLocation();
   useEffect(() => {
+    props.onOption(value)
     history.push(value)
   }, [value])
   useEffect(()=>{
+    if(location.pathname!=='/')
+    {
     setValue(location.pathname.substring(1))
+    }
+    else{
+      setValue("home")
+    }
   },[])
+  useEffect(() => {
+    setValue(props.value)
+  },[props.value])
   useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((authUser)=>{
       if(!authUser){
@@ -42,10 +52,11 @@ export default function Navbar(props) {
   };
   return (
     <div>
-      <div className='wrap'>
-        <div></div>
-          <div className="spa">
-                <h2 style={{paddingTop:'2vh'}} >Hello, User!!</h2>
+      <div className='wrap' style={(value!=='home')?{justifyContent:'space-evenly'}:{justifyContent:'flex-end'}}>
+        
+          <div className="spa" >
+          {(value!=='home')?(
+                <h2 style={{paddingTop:'2vh'}} >Hello, User!!</h2>):(<><h2 style={{paddingTop:'2vh'}} >&nbsp;</h2></>)}
           </div>
           <IconButton onClick={signOut}>
           <ExitToAppIcon fontSize="large" />

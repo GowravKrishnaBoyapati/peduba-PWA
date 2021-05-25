@@ -1,17 +1,16 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-    import CssBaseline from '@material-ui/core/CssBaseline';
-
-    const theme = createMuiTheme({
+import CssBaseline from '@material-ui/core/CssBaseline';
+const theme = createMuiTheme({
       palette: {
-        type: "light",
+        type: window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",
       }
-    });
+});
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
