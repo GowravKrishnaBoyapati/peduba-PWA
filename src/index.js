@@ -15,7 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
         <CssBaseline />
-        <App />
+        <App themepal={theme} theme={window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}/>
       </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -24,7 +24,7 @@ const innerTheme = createMuiTheme({
   },
 });
 let c=0;
-function TrainingNabvar(props) {
+function JobsNavbar(props) {
     const classes = useStyles();
   const [value, setValue] = React.useState(0);
   let history = useHistory();
@@ -34,7 +34,7 @@ function TrainingNabvar(props) {
   }, [value])
   useEffect(() =>{
      c=0
-    setValue('MyTrainings') 
+    setValue('myjobs') 
   },[])
   const handleChange = (event, newValue) => {
     c=1
@@ -46,11 +46,11 @@ function TrainingNabvar(props) {
     <ThemeProvider theme={innerTheme} >
       <div style={{paddingLeft:'5%'}}></div>
     <BottomNavigation value={value} onChange={handleChange} className={classes.root} style ={{backgroundColor:bgcol,color:icol,borderRadius:50,width: '95%'}}>
-    <BottomNavigationAction label="My trainings" value="MyTrainings"   icon={<PermIdentityIcon style={{color:icol}}/>} />
-     <BottomNavigationAction label="Team Trainings" value="TeamTrainings"  icon={<PeopleIcon style={{color:icol}}/>}/> 
+    <BottomNavigationAction label="My Jobs" value="myjobs"   icon={<PermIdentityIcon style={{color:icol}}/>} />
+     <BottomNavigationAction label="Team Jobs" value="teamjobs"  icon={<PeopleIcon style={{color:icol}}/>}/> 
     </BottomNavigation>
     </ThemeProvider>
   );
 }
 
-export default TrainingNabvar
+export default JobsNavbar

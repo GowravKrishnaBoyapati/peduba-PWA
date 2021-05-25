@@ -1,52 +1,59 @@
 .xyz{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     padding-top: 2vh;
     padding-bottom: 2vh;
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-  
-.btn {
+.tran-bx1 {
     display: block;
     cursor: pointer;
     border: 4px solid #3498db;
     overflow: hidden;
     border-radius:10px;
-    height: auto;
-    width: 48vw;
+    padding:2vw 3vh;
+    height: 30vw;
+    width: 45%;
     color: #3498db;
     font-weight: bold;
     font-size: 1em;
-    background: linear-gradient(90deg, #ffff, #c01616, #23a6d5, #23d5ab);
-    background-size: 800% 800%;
-    animation: gradient 10s ease infinite;
+    background: linear-gradient(139.05deg, #F90606 0%, #651EB7 97.89%);
+    background-size: 100% 100%;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
-.btn1 {
+.tran-bx2 {
     display: block;
     cursor: pointer;
-    border: 1px solid #3498db;
-    padding-top: 2vh;
-    background-color: transparent;
+    border: 4px solid #3498db;
     overflow: hidden;
-    height: auto;
-    width: 96vw;
+    border-radius:10px;
+    padding:2vw 3vh;
+    height: 30vw;
+    width: 45%;
     color: #3498db;
+    font-weight: bold;
     font-size: 1em;
+    background: linear-gradient(226.98deg, #00B1FF -8.78%, #FF5454 100%);
+    background-size: 100% 100%;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
-    background: linear-gradient(45deg, #ec9f05, #ff4e00);
-    background-size: 800% 800%;
-    animation: gradient 5s ease infinite;
 }
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.tran-bx3 {
+    display: block;
+    cursor: pointer;
+    border: 4px solid #3498db;
+    overflow: hidden;
+    border-radius:10px;
+    padding:2vw 3vh;
+    height: 30vw;
+    width: 45%;
+    color: #3498db;
+    font-weight: bold;
+    font-size: 1em;
+    background: linear-gradient(180deg, #FF0000 0%, #800000 100%);
+    background-size: 100% 100%;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }

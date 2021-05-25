@@ -7,6 +7,7 @@ import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import {auth} from "../firebase"
 import {useHistory,useLocation } from 'react-router-dom'
 import './Navbar.css';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import IconButton from '@material-ui/core/IconButton';
 
@@ -50,25 +51,31 @@ export default function Navbar(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue,);
   };
+  const innerTheme = createMuiTheme({
+    palette: {
+      primary: {
+        main: '#ff8000',
+      },
+    },
+  });
+  const bgcol=(props.theme==='dark')?'white':'#373636';
+  const icol=(props.theme==='dark')?'#373636':'white';
   return (
     <div>
-      <div className='wrap' style={(value!=='home')?{justifyContent:'space-evenly'}:{justifyContent:'flex-end'}}>
-        
-          <div className="spa" >
-          {(value!=='home')?(
-                <h2 style={{paddingTop:'2vh'}} >Hello, User!!</h2>):(<><h2 style={{paddingTop:'2vh'}} >&nbsp;</h2></>)}
-          </div>
+      <div className='wrap' style={{justifyContent:'flex-end'}}>
           <IconButton onClick={signOut}>
           <ExitToAppIcon fontSize="large" />
           </IconButton>
       </div>
-    <BottomNavigation value={value} onChange={handleChange} className="root" style={{width:'100%'}}>
-    <BottomNavigationAction label="Home" value="home"  icon={<HomeOutlinedIcon  />} />
-     <BottomNavigationAction label="Incident" value="Incidents"  icon={<ReportProblemOutlinedIcon />}/> 
-     <BottomNavigationAction label="Training" value="trainings" icon={<LocalLibraryOutlinedIcon />} />
-    <BottomNavigationAction label="Jobs" value="jobs" icon={<WorkOutlineIcon />} />
-    <BottomNavigationAction label="Settings" value="Settings" icon={<TuneOutlinedIcon />} />
+      <ThemeProvider theme={innerTheme}>
+    <BottomNavigation value={value} onChange={handleChange}  className="root" style={{width:'100%',backgroundColor:bgcol}}>
+    <BottomNavigationAction label="Home" value="home"    icon={<HomeOutlinedIcon  style={{color:icol}}/>} />
+     <BottomNavigationAction label="Incident" value="Incidents"  icon={<ReportProblemOutlinedIcon style={{color:icol}}/>}/> 
+     <BottomNavigationAction label="Training" value="trainings" icon={<LocalLibraryOutlinedIcon style={{color:icol}}/>} />
+    <BottomNavigationAction label="Jobs" value="jobs" icon={<WorkOutlineIcon style={{color:icol}}/>} />
+    <BottomNavigationAction label="Settings" value="Settings" icon={<TuneOutlinedIcon style={{color:icol}} />} />
     </BottomNavigation>
+    </ThemeProvider>
     </div>
   );
 }

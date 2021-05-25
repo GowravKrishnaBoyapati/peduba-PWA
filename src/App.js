@@ -8,6 +8,7 @@ import Incidents from './pages/Incidents'
 import Login from './pages/Login'
 import Attendance from './pages/Attendance'
 import {auth,db} from './firebase'
+import Piechart from './components/Piechart';
 import {
   BrowserRouter as Router,
   Switch,
@@ -50,16 +51,17 @@ function App(props) {
         ):
         (
           <Router>
-        <Navbar value={page} onOption={(e)=>{setPage(e)}}/>
+        <Navbar theme={props.theme} value={page} onOption={(e)=>{setPage(e)}}/>
         <Switch>
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
           <Route path='/home' ><Dashboard onPageChange={(e)=>{console.log(e); setPage(e)}} /> </Route>
-          <Route path='/trainings' ><Trainings user_category={userData.user_category} /> </Route>
+          <Route path='/trainings' ><Trainings theme={props.theme} user_category={userData.user_category} /> </Route>
           <Route path='/settings' component={Settings} />
-          <Route path='/jobs' component={Jobs} />
+          <Route path='/jobs' ><Jobs theme={props.theme} user_category={userData.user_category} /></Route>
           <Route path='/Incidents' component={Incidents} />
+          <Route path='/stocks' component={Piechart} />
           <Route path='/attendance'><Attendance /></Route>
         </Switch>
         </Router>
