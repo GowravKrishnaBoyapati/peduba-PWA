@@ -1,22 +1,15 @@
 import React,{useState,useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Index2 from './Index2';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-const theme = createMuiTheme({
-      palette: {
-        type: window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",
-      }
-});
+
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App themepal={theme} theme={window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}/>
-      </ThemeProvider>
+    
+        <Index2 />
+      
   </React.StrictMode>,
   document.getElementById('root')
 );

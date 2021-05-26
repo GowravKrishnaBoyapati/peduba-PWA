@@ -36,8 +36,10 @@
     font-weight: bold;
     font-size: 1em;
     background: linear-gradient(139.05deg, #F90606 0%, #651EB7 97.89%);
-    background-size: 100% 100%;
+    background-size: 400% 400%;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    animation: gradient 5s ease infinite;
+    
 }
 .bx2 {
     display: block;
@@ -52,8 +54,9 @@
     font-weight: bold;
     font-size: 1em;
     background: linear-gradient(226.98deg, #00B1FF -8.78%, #FF5454 100%);
-    background-size: 100% 100%;
+    background-size: 400% 400%;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    animation: gradient 5s ease infinite;
 }
 .bx3 {
     display: block;
@@ -68,8 +71,9 @@
     font-weight: bold;
     font-size: 1em;
     background: linear-gradient(180deg, #FF0000 0%, #800000 100%);
-    background-size: 100% 100%;
+    background-size: 400% 400%;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    animation: gradient 5s ease infinite;
 }
 .bx4 {
     display: block;
@@ -84,6 +88,18 @@
     font-weight: bold;
     font-size: 1em;
     background: linear-gradient(224.19deg, #FF0000 0%, #D700FF 105.62%);
-    background-size: 100% 100%;
+    background-size: 400% 400%;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    animation: gradient 5s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

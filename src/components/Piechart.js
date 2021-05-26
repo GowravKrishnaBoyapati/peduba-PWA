@@ -3,6 +3,11 @@ import { Chart } from "react-google-charts";
 function Piechart(props) {
     const [theme, setTheme] = useState(props.theme)
     const txtcol=(theme==='dark')?'#fff':'#000'
+    useEffect(()=>{
+        setTheme(props.theme)
+    },[props.theme])
+    useEffect(() => {
+    }, [theme])
     return (
         <div>
             <Chart
@@ -18,6 +23,11 @@ function Piechart(props) {
                 ]}
                 options={{
                     'backgroundColor': 'transparent',
+                    animation: {
+                        duration: 1000,
+                       // easing: 'out',
+                        startup: true
+                    },
                     legendTextStyle: { color: txtcol, fontSize:12 },
                     is3D: true,
                 }}

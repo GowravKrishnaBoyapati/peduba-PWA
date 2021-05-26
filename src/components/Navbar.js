@@ -54,7 +54,7 @@ export default function Navbar(props) {
   const innerTheme = createMuiTheme({
     palette: {
       primary: {
-        main: '#ff8000',
+        main: (props.theme==='dark')?'#67eb34':'#ff8000',
       },
     },
   });
@@ -64,11 +64,11 @@ export default function Navbar(props) {
     <div>
       <div className='wrap' style={{justifyContent:'flex-end'}}>
           <IconButton onClick={signOut}>
-          <ExitToAppIcon fontSize="large" />
+          <ExitToAppIcon fontSize="large" style={{color:innerTheme.palette.primary.main}} />
           </IconButton>
       </div>
       <ThemeProvider theme={innerTheme}>
-    <BottomNavigation value={value} onChange={handleChange}  className="root" style={{width:'100%',backgroundColor:bgcol}}>
+    <BottomNavigation value={value} onChange={handleChange}  className="root" style={{backgroundColor:bgcol}}>
     <BottomNavigationAction label="Home" value="home"    icon={<HomeOutlinedIcon  style={{color:icol}}/>} />
      <BottomNavigationAction label="Incident" value="Incidents"  icon={<ReportProblemOutlinedIcon style={{color:icol}}/>}/> 
      <BottomNavigationAction label="Training" value="trainings" icon={<LocalLibraryOutlinedIcon style={{color:icol}}/>} />

@@ -6,25 +6,26 @@ import PeopleIcon from '@material-ui/icons/People';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import {useHistory} from 'react-router-dom'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-const useStyles = makeStyles({
-  root: {
-    width: '50vw',
-    bottom: 0,
-    dsiplay:'flex',
-    justifyContent:'cnter',
-    marginLeft:'auto',
-    marginRight:'auto',
-  },
-});
-const innerTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#ff8000',
-    },
-  },
-});
+
 let c=0;
 function JobsNavbar(props) {
+  const useStyles = makeStyles({
+    root: {
+      width: '50vw',
+      bottom: 0,
+      dsiplay:'flex',
+      justifyContent:'cnter',
+      marginLeft:'auto',
+      marginRight:'auto',
+    },
+  });
+  const innerTheme = createMuiTheme({
+    palette: {
+      primary: {
+        main: (props.theme==='dark')?'#67eb34':'#ff8000',
+      },
+    },
+  });
     const classes = useStyles();
   const [value, setValue] = React.useState(0);
   let history = useHistory();

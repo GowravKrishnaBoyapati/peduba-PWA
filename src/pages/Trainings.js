@@ -12,7 +12,12 @@ function Trainings(props) {
     return (
         <div className="ABC">
             {(props.user_category==='reviewer')?(
-            <TrainingNavbar theme={props.theme} onChange={(e)=>{setTrainState(e)}}/>):(<></>)}
+            <TrainingNavbar theme={props.theme} onChange={(e)=>{setTrainState(e)}}/>):(
+            <>
+            <div>
+                <h1>Traingings</h1>
+            </div>
+            </>)}
             <Piechart theme={props.theme}/>
             <div className='xyz'>
             <Button className="tran-bx1" style={{borderRadius:40,overflow: 'hidden'}} ><ScheduleOutlinedIcon fontSize="large" /><h4>Scheduled Trainings</h4></Button>

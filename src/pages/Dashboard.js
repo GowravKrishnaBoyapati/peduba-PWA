@@ -12,7 +12,7 @@ function Dashboard(props) {
             <div className="mdiv">
             <div className="div1">
             <Button className="bx1" variant="contained" style={{borderRadius:50}} label="Attendance" onClick={()=>{props.onPageChange('attendance')}}><h4>Attendance</h4></Button>
-            <Button className="bx2" variant="contained" style={{borderRadius:50}} label="Stock"  onClick={()=>{props.onPageChange('stocks')}}><h4>Stock</h4></Button></div>
+            <Button className="bx2" variant="contained" disabled={true} style={{borderRadius:50}} label="Calendar"  onClick={()=>{props.onPageChange('stocks')}}><h4>Calendar</h4></Button></div>
             <div className="div2">
             <Button className="bx3" variant="contained" style={{borderRadius:50}} label="Jobs" onClick={()=>{props.onPageChange('jobs')}}><h4>Jobs</h4></Button>
             <Button className="bx4" variant="contained" style={{borderRadius:50}} label="trainings" onClick={()=>{props.onPageChange('trainings')}}><h4>Traingings</h4></Button>
